@@ -1,0 +1,37 @@
+<!-- login.component.html -->
+<div class="login-container">
+    <div class="background-image"></div>
+    <div class="login-form">
+      <img src="/src/images/background.jpg" alt="Quiz Logo" class="logo">
+      <h2>Login to Quiz App</h2>
+      <form (submit)="onSubmit()">
+        <div class="form-group">
+          <label for="username">Username:</label>
+          <input type="text" id="username" name="username" [(ngModel)]="username" placeholder="Enter your username">
+        </div>
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="Enter your password">
+        </div>
+        <button type="submit" >Login</button>
+      </form>
+    </div>
+  </div>
+  
+
+  <!-- login.component.html -->
+<!-- <div class="login-container">
+    <h2>Login to Quiz App</h2>
+    <form>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username" [(ngModel)]="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" placeholder="Enter your password" [(ngModel)]="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div> -->
+  

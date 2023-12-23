@@ -1,0 +1,50 @@
+<mat-form-field>
+  <mat-label>Select an option</mat-label>
+  <mat-select>
+    <mat-option
+      *ngFor="let l of languageList"
+      [value]="l.Id"
+      (onSelectionChange)="onChangeLanguage(l.Id)"
+      >{{ l.Language_name }}</mat-option
+    >
+  </mat-select>
+</mat-form-field>
+<div style="display: flex; justify-content: space-between;">
+  <div
+    *ngIf="quizSubmitted"
+    style="text-align: start; background-color: green; font-size: large"
+  >
+    Quiz Submitted Successfully!!!!!
+  </div>
+
+  <div *ngIf="quizSubmitted" style="text-align: end; font-size: large">
+    Total Marks : {{ totalMarks }}
+  </div>
+</div>
+<div>
+  <div
+    *ngFor="let q of questionListAll; let i = index"
+    [ngClass]="i % 2 == 0 ? 'light-gray' : 'light-blue'"
+  >
+    <h3>
+      <b>{{ i + 1 }} &nbsp; {{ q.questionsString }}</b>
+    </h3>
+    <mat-radio-group [(ngModel)]="q.id" [disabled]="quizSubmitted">
+      <mat-radio-button
+        style="display: block"
+        *ngFor="let option of q.optionData"
+        (change)="onRadioChange(option, i)"
+        [value]="
+          q.id == correctAnswerList[i]?.QuesionId
+            ? correctAnswerList[i]?.OptionId
+            : option.Id
+        "
+        >{{ option.OptionsString }}</mat-radio-button
+      >
+    </mat-radio-group>
+  </div>
+</div>
+
+<div *ngIf="!quizSubmitted" style="text-align: center">
+  <button mat-button (click)="submitQuiz()">Submit Quiz</button>
+</div>
