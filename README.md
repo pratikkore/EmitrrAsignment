@@ -20,7 +20,7 @@ Clone the repository.
 
 bash
 Copy code
-git clone https://github.com/your-username/quiz-app.git
+git clone https://github.com/pratikkore/quiz-app.git
 Navigate to the frontend folder and install dependencies.
 
 bash
